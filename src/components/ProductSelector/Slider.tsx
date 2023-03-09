@@ -4,18 +4,21 @@ import {Slider as RNSlider} from '@miblanchard/react-native-slider';
 import appTheme from '../../theme/appTheme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Animated} from 'react-native';
+import {useShopping} from '../../context/ShoppingContext';
 interface SliderProps {
   value: number;
   setValue: (value: number) => void;
+  title: string;
 }
 const AnimatedCenter = Animated.createAnimatedComponent(Center);
 
 const Slider: FC<SliderProps> = (props) => {
-  const {value, setValue} = props;
+  const {value, setValue, title} = props;
 
   const [isInfoVisible, setIsInfoVisible] = useState(0);
   const infoOpacity = useRef(new Animated.Value(0)).current;
 
+  const {addItem} = useShopping();
   const handleInfoOpacity = () => {
     Animated.timing(infoOpacity, {
       toValue: isInfoVisible,
@@ -37,7 +40,13 @@ const Slider: FC<SliderProps> = (props) => {
       maximumTrackTintColor={appTheme.colors.trueGray[400]}
       step={10}
       onSlidingStart={() => setIsInfoVisible(1)}
-      onSlidingComplete={() => setIsInfoVisible(0)}
+      onSlidingComplete={() => {
+        setIsInfoVisible(0);
+        addItem({
+          count: value,
+          title,
+        });
+      }}
       renderAboveThumbComponent={() => (
         <AnimatedCenter opacity={infoOpacity}>
           <Center
