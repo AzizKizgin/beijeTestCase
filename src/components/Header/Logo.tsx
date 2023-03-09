@@ -1,13 +1,15 @@
-import React from 'react';
-import {Box, Text} from 'native-base';
-
-const Logo = () => {
+import React, {FC} from 'react';
+import {Pressable, Text} from 'native-base';
+interface LogoProps {
+  onPress?: () => void;
+}
+const Logo: FC<LogoProps> = ({onPress}) => {
   return (
-    <Box>
+    <Pressable onPress={onPress}>
       <Text fontSize={'2xl'} fontWeight={'semibold'} color={'logo'}>
         beije.
       </Text>
-    </Box>
+    </Pressable>
   );
 };
 
