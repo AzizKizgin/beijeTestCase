@@ -19,7 +19,7 @@ const Slider: FC<SliderProps> = (props) => {
   const handleInfoOpacity = () => {
     Animated.timing(infoOpacity, {
       toValue: isInfoVisible,
-      duration: 500,
+      duration: isInfoVisible ? 100 : 1000,
       useNativeDriver: true,
     }).start();
   };
