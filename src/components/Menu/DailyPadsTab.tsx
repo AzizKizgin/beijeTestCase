@@ -1,10 +1,26 @@
-import React from 'react';
-import {Box, Text} from 'native-base';
+import React, {useState} from 'react';
+import {Box, VStack} from 'native-base';
+import ProductSelector from '../ProductSelector';
 
 const DailyPadsTab = () => {
+  const [dailyPads, setDailyPads] = useState(0);
+  const [superDailyPads, setsuperDailyPads] = useState(0);
   return (
-    <Box flex={1} backgroundColor="bgColor">
-      <Text>DailyPadsMenu</Text>
+    <Box variant="tabBar">
+      <VStack space={2} marginY={4}>
+        <ProductSelector
+          title="Günlük Ped"
+          setValue={setDailyPads}
+          value={dailyPads}
+          maximumValue={100}
+        />
+        <ProductSelector
+          title="Super Günlük Ped"
+          setValue={setsuperDailyPads}
+          value={superDailyPads}
+          maximumValue={100}
+        />
+      </VStack>
     </Box>
   );
 };
