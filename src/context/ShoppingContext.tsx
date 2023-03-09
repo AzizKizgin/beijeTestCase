@@ -5,46 +5,40 @@ interface ShoppingContextProps {
   children: ReactNode;
 }
 
-type Item = {
-  title: string;
-  count: number;
-};
-
 interface ShoppingContextType {
-  addItem: (item: Item) => void;
-  removeItem: (item: Item) => void;
-  items: Item[];
+  addItem: (item: Product) => void;
+  removeItem: (...items: Product[]) => void;
+  products: Product[];
   openModal: () => void;
 }
 
 const ShoppingContext = createContext<ShoppingContextType>({
   addItem: () => {},
   removeItem: () => {},
-  items: [],
+  products: [],
   openModal: () => {},
 });
 
 export const ShoppingProvider = ({children}: ShoppingContextProps) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [items, setItems] = useState<Item[]>([]);
-  const addItem = (item: Item) => {
-    const itemIndex = items.findIndex((i) => i.title === item.title);
+  const [products, setProducts] = useState<Product[]>([]);
+  const addItem = (item: Product) => {
+    const itemIndex = products.findIndex((i) => i.title === item.title);
     if (itemIndex === -1) {
-      setItems([...items, item]);
+      setProducts([...products, item]);
     } else {
-      const newItems = [...items];
+      const newItems = [...products];
       newItems[itemIndex] = item;
-      setItems(newItems);
+      setProducts(newItems);
     }
   };
-  const removeItem = (item: Item) => {
-    const itemIndex = items.findIndex((i) => i.title === item.title);
-    if (itemIndex !== -1) {
-      const newItems = [...items];
-      newItems.splice(itemIndex, 1);
-      setItems(newItems);
-    }
+  const removeItem = (...items: Product[]) => {
+    const newItems = products.filter((i) => {
+      return !items.some((item) => item.title === i.title);
+    });
+    setProducts(newItems);
   };
+
   const openModal = () => {
     setModalVisible(true);
   };
@@ -53,7 +47,7 @@ export const ShoppingProvider = ({children}: ShoppingContextProps) => {
       value={{
         addItem,
         removeItem,
-        items,
+        products,
         openModal,
       }}>
       <>
