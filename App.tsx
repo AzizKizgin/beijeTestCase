@@ -1,25 +1,15 @@
-import React, {useState} from 'react';
-import {Box, Text} from 'native-base';
+import React from 'react';
 import {NativeBaseProvider} from 'native-base';
 import appTheme from './src/theme/appTheme';
-import Slider from './src/components/Slider/Slider';
+import {NavigationContainer} from '@react-navigation/native';
+import Router from './src/navigation/Router';
 
 const App = () => {
-  const [value, setValue] = useState(0);
   return (
     <NativeBaseProvider theme={appTheme}>
-      <Box
-        justifyContent="center"
-        flex={1}
-        backgroundColor="white"
-        paddingX={4}>
-        <Slider
-          maximumValue={100}
-          value={value}
-          setValue={setValue}
-          title="Standart Ped"
-        />
-      </Box>
+      <NavigationContainer>
+        <Router />
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 };
