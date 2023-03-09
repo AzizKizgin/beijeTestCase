@@ -3,3 +3,8 @@ type NavigationParams = {
   Account: undefined;
   Cart: undefined;
 };
+
+type Product = {
+  title: string;
+  count: number;
+};
