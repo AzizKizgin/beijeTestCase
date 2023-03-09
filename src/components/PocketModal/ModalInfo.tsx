@@ -1,6 +1,7 @@
 import React from 'react';
 import {Box, Icon, Text} from 'native-base';
 import Feather from 'react-native-vector-icons/Feather';
+import {strings} from '../../utils/strings';
 
 const ModalInfo = () => {
   return (
@@ -17,7 +18,7 @@ const ModalInfo = () => {
         color={'gray.500'}
         fontWeight={'semibold'}
         marginLeft={4}>
-        2 ayda 1 gönderim
+        {strings.sendPlan}
       </Text>
     </Box>
   );

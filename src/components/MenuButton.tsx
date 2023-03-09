@@ -1,6 +1,7 @@
 import React from 'react';
 import {Pressable, Text} from 'native-base';
 import {useShopping} from '../context/ShoppingContext';
+import {strings} from '../utils/strings';
 
 const MenuButton = () => {
   const {openModal} = useShopping();
@@ -13,7 +14,9 @@ const MenuButton = () => {
       alignItems="center"
       marginX={4}
       borderRadius={'full'}>
-      <Text color="white">Paketini Gör</Text>
+      <Text color="white" fontSize={'md'}>
+        {strings.seePack}
+      </Text>
     </Pressable>
   );
 };

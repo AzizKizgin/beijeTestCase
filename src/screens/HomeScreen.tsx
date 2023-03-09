@@ -2,6 +2,7 @@ import React from 'react';
 import {Box, Text, VStack} from 'native-base';
 import MenuTabs from '../navigation/MenuTabs';
 import MenuButton from '../components/MenuButton';
+import {strings} from '../utils/strings';
 
 const HomeScreen = () => {
   return (
@@ -12,11 +13,10 @@ const HomeScreen = () => {
           fontWeight="bold"
           color="darkGray"
           textAlign="center">
-          Kendi Paketini Oluştur
+          {strings.createYourPack}
         </Text>
         <Text color="textColor" textAlign="center" fontSize="sm">
-          Tercih ve ihtiyaçların doğrultusunda seçeceğin ürünlerden ve
-          miktarlardan, sana özel bir paket oluşturalım.
+          {strings.createInfo}
         </Text>
       </VStack>
       <Box>
