@@ -16,6 +16,18 @@ const appTheme = extendTheme({
     button: themeColors.button,
     logo: themeColors.logo,
   },
+
+  components: {
+    Box: {
+      variants: {
+        tabBar: {
+          bg: themeColors.bgColor,
+          flex: 1,
+          padding: 4,
+        },
+      },
+    },
+  },
 });
 
 type CustomThemeType = typeof appTheme;
