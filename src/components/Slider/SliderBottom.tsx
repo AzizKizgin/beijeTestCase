@@ -14,9 +14,6 @@ const SliderBottom: FC<SliderBottomProps> = (props) => {
         0
       </Text>
       <Text fontSize="sm" color="darkGray" fontWeight="semibold">
-        {value}
-      </Text>
-      <Text fontSize="sm" color="darkGray" fontWeight="semibold">
         {maximumValue}
       </Text>
     </Box>
