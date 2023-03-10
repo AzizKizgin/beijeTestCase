@@ -1,10 +1,12 @@
 import React from 'react';
 import {Box, Text, VStack} from 'native-base';
 import MenuTabs from '../navigation/MenuTabs';
-import MenuButton from '../components/MenuButton';
 import {strings} from '../utils/strings';
+import Button from '../components/Button';
+import {useShopping} from '../context/ShoppingContext';
 
 const HomeScreen = () => {
+  const {openModal} = useShopping();
   return (
     <Box flex={1} backgroundColor="bgColor" paddingX={1}>
       <VStack paddingX={4} space={2} marginY={4}>
@@ -21,7 +23,7 @@ const HomeScreen = () => {
       </VStack>
       <Box>
         <MenuTabs />
-        <MenuButton />
+        <Button title={strings.seePack} onPress={openModal} />
       </Box>
     </Box>
   );
