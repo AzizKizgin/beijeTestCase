@@ -4,14 +4,17 @@ import appTheme from './src/theme/appTheme';
 import {NavigationContainer} from '@react-navigation/native';
 import Router from './src/navigation/Router';
 import {ShoppingProvider} from './src/context/ShoppingContext';
+import {BottomMenuProvider} from './src/context/BottomMenuContext';
 
 const App = () => {
   return (
     <NativeBaseProvider theme={appTheme}>
       <ShoppingProvider>
-        <NavigationContainer>
-          <Router />
-        </NavigationContainer>
+        <BottomMenuProvider>
+          <NavigationContainer>
+            <Router />
+          </NavigationContainer>
+        </BottomMenuProvider>
       </ShoppingProvider>
     </NativeBaseProvider>
   );
