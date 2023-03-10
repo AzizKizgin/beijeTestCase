@@ -4,21 +4,8 @@ import Logo from './Logo';
 import ShopCart from './ShopCart';
 import Account from './Account';
 import Menu from './Menu';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const Header = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<NavigationParams>>();
-  const onShopCartPress = () => {
-    navigation.navigate('Cart');
-  };
-  const onAccountPress = () => {
-    navigation.navigate('Account');
-  };
-  const onLogoPress = () => {
-    navigation.navigate('Home');
-  };
   return (
     <Box
       flexDirection={'row'}
@@ -28,10 +15,10 @@ const Header = () => {
       borderBottomWidth={1}
       borderBottomColor={'gray.200'}
       backgroundColor={'bgColor'}>
-      <Logo onPress={onLogoPress} />
+      <Logo />
       <HStack space={4} alignItems={'center'} justifyContent={'center'}>
-        <ShopCart onPress={onShopCartPress} />
-        <Account onPress={onAccountPress} />
+        <ShopCart />
+        <Account />
         <Menu />
       </HStack>
     </Box>

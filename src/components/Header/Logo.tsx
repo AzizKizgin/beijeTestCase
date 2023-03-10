@@ -1,10 +1,16 @@
 import React, {FC} from 'react';
 import {Pressable, Text} from 'native-base';
 import {strings} from '../../utils/strings';
-interface LogoProps {
-  onPress?: () => void;
-}
-const Logo: FC<LogoProps> = ({onPress}) => {
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+const Logo = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<NavigationParams>>();
+
+  const onPress = () => {
+    navigation.navigate('Home');
+  };
   return (
     <Pressable onPress={onPress}>
       <Text fontSize={'2xl'} fontWeight={'semibold'} color={'logo'}>
