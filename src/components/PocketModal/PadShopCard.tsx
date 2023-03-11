@@ -41,9 +41,9 @@ const PadShopCard: FC<PadShopCardProps> = (props) => {
       </Text>
       <Text fontSize={'sm'} color={'gray.400'}>
         {standartPad.count > 0
-          ? `${standartPad.count} ${strings.standardPad} `
+          ? `${standartPad.count} ${strings.standardPad}, `
           : ''}
-        ,{superPad.count > 0 ? `${superPad.count} ${strings.superPad} ` : ''}
+        {superPad.count > 0 ? `${superPad.count} ${strings.superPad} ` : ''}
         {strings.and}
         {superPlusPad.count > 0
           ? `${superPlusPad.count} ${strings.superPlusPad}`

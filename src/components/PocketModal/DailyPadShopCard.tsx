@@ -31,7 +31,7 @@ const DailyPadShopCard: FC<DailyPadShopCardProps> = (props) => {
         {strings.padPacks}
       </Text>
       <Text fontSize={'sm'} color={'gray.400'}>
-        {dailyPad.count > 0 ? `${dailyPad.count} ${strings.dailyPad} ` : ''},
+        {dailyPad.count > 0 ? `${dailyPad.count} ${strings.dailyPad}, ` : ''}
         {superDailyPad.count > 0
           ? `${superDailyPad.count} ${strings.superDailyPad} `
           : ''}

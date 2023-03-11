@@ -32,9 +32,9 @@ const BufferShopCard: FC<BufferShopCardProps> = (props) => {
       </Text>
       <Text fontSize={'sm'} color={'gray.400'}>
         {miniBuffer.count > 0
-          ? `${miniBuffer.count} ${strings.miniBuffer} `
+          ? `${miniBuffer.count} ${strings.miniBuffer}, `
           : ''}
-        ,
+
         {standardBuffer.count > 0
           ? `${standardBuffer.count} ${strings.superDailyPad} `
           : ''}
