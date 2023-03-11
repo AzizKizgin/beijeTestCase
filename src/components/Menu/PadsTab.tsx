@@ -8,6 +8,27 @@ const PadsTab = () => {
   const [standardPad, setStandardPad] = useState(0);
   const [superPad, setSuperPad] = useState(0);
   const [superPlusPad, setSuperPlusPad] = useState(0);
+  const {products} = useShopping();
+
+  useEffect(() => {
+    const standardPadProduct = products.find(
+      (i) => i.title === strings.standardPad,
+    );
+    const superPadProduct = products.find((i) => i.title === strings.superPad);
+    const superPlusPadProduct = products.find(
+      (i) => i.title === strings.superPlusPad,
+    );
+
+    if (!standardPadProduct) {
+      setStandardPad(0);
+    }
+    if (!superPadProduct) {
+      setSuperPad(0);
+    }
+    if (!superPlusPadProduct) {
+      setSuperPlusPad(0);
+    }
+  }, [products]);
 
   return (
     <Box variant="tabBar">

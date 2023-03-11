@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {Box, ScrollView, Text, VStack} from 'native-base';
 import Modal from 'react-native-modal';
 import ModalHeader from './ModalHeader';
@@ -33,6 +33,12 @@ const PocketModal: FC<PocketModalProps> = (props) => {
   const totalPrice = products.reduce((total, item) => {
     return total + 3 * item.count;
   }, 0);
+
+  useEffect(() => {
+    if (totalPrice === 0) {
+      setModalVisible(false);
+    }
+  }, [products]);
 
   return (
     <Modal
