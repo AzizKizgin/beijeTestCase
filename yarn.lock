@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aziz_kizgin/react-native-toast-message@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@aziz_kizgin/react-native-toast-message/-/react-native-toast-message-1.0.2.tgz#18b7d88d4e1b3aa7b8e1b697adfba37881555efa"
-  integrity sha512-QH+jp1OdIXjNqvOw+T2SUaZXQK07denHXl3TPd8U1Hrbo72v1QRIqEniaUCogVyJDZl1VMHldivZFngnEiutow==
+"@aziz_kizgin/react-native-toast-message@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@aziz_kizgin/react-native-toast-message/-/react-native-toast-message-1.0.3.tgz#e0c81b915837316d06102b1f3b7ddfb374b50b36"
+  integrity sha512-M0kmRUn9/4N+T/9Hf4eafPLVY4Xc6vzXi0QjBT8QWF9KfRQCn6AQD0JAaDB1u+j/uIou3KG90OFTogB6wef6bw==
   dependencies:
     react-native-reanimated "^3.0.0"
     typescript "^4.9.5"
