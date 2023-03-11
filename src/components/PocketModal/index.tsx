@@ -18,7 +18,7 @@ interface PocketModalProps {
 
 const PocketModal: FC<PocketModalProps> = (props) => {
   const {modalVisible, setModalVisible} = props;
-  const {products} = useShopping();
+  const {products, addToCart, removeFromCart} = useShopping();
 
   const standardPad = products.find((i) => i.title === strings.standardPad);
   const superPad = products.find((i) => i.title === strings.superPad);
@@ -37,6 +37,7 @@ const PocketModal: FC<PocketModalProps> = (props) => {
   useEffect(() => {
     if (totalPrice === 0) {
       setModalVisible(false);
+      removeFromCart();
     }
   }, [products]);
 
@@ -80,7 +81,12 @@ const PocketModal: FC<PocketModalProps> = (props) => {
             />
             <Button
               title={strings.addToCart + ` (₺${totalPrice})`}
-              onPress={() => {}}
+              onPress={() => {
+                if (totalPrice > 0) {
+                  addToCart();
+                  setModalVisible(false);
+                }
+              }}
             />
           </VStack>
         </Box>

@@ -10,6 +10,9 @@ interface ShoppingContextType {
   removeItem: (...items: Product[]) => void;
   products: Product[];
   openModal: () => void;
+  cart: Product[];
+  addToCart: () => void;
+  removeFromCart: () => void;
 }
 
 const ShoppingContext = createContext<ShoppingContextType>({
@@ -17,11 +20,15 @@ const ShoppingContext = createContext<ShoppingContextType>({
   removeItem: () => {},
   products: [],
   openModal: () => {},
+  cart: [],
+  addToCart: () => {},
+  removeFromCart: () => {},
 });
 
 export const ShoppingProvider = ({children}: ShoppingContextProps) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
+  const [cart, setCart] = useState<Product[]>([]);
   const addItem = (item: Product) => {
     const itemIndex = products.findIndex((i) => i.title === item.title);
     if (itemIndex === -1) {
@@ -42,6 +49,15 @@ export const ShoppingProvider = ({children}: ShoppingContextProps) => {
   const openModal = () => {
     setModalVisible(true);
   };
+
+  const addToCart = () => {
+    setCart(products);
+  };
+
+  const removeFromCart = () => {
+    setCart([]);
+  };
+
   return (
     <ShoppingContext.Provider
       value={{
@@ -49,6 +65,9 @@ export const ShoppingProvider = ({children}: ShoppingContextProps) => {
         removeItem,
         products,
         openModal,
+        cart,
+        addToCart,
+        removeFromCart,
       }}>
       <>
         <PocketModal
