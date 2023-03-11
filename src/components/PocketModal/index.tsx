@@ -29,6 +29,11 @@ const PocketModal: FC<PocketModalProps> = (props) => {
   const standardBuffer = products.find(
     (i) => i.title === strings.standardBuffer,
   );
+
+  const totalPrice = products.reduce((total, item) => {
+    return total + 3 * item.count;
+  }, 0);
+
   return (
     <Modal
       isVisible={modalVisible}
@@ -67,7 +72,10 @@ const PocketModal: FC<PocketModalProps> = (props) => {
               miniBuffer={miniBuffer}
               standardBuffer={standardBuffer}
             />
-            <Button title={strings.addToCart} onPress={() => {}} />
+            <Button
+              title={strings.addToCart + ` (₺${totalPrice})`}
+              onPress={() => {}}
+            />
           </VStack>
         </Box>
       </ScrollView>
