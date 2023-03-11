@@ -17,7 +17,12 @@ const ProductSelector: FC<Props> = (props) => {
   return (
     <Box>
       <SliderTitle title={title} />
-      <Slider setValue={setValue} value={value} title={title} />
+      <Slider
+        setValue={setValue}
+        value={value}
+        title={title}
+        maximumValue={maximumValue}
+      />
       <SliderBottom maximumValue={maximumValue} value={value} />
     </Box>
   );

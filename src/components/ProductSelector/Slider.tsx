@@ -9,11 +9,12 @@ interface SliderProps {
   value: number;
   setValue: (value: number) => void;
   title: string;
+  maximumValue: number;
 }
 const AnimatedCenter = Animated.createAnimatedComponent(Center);
 
 const Slider: FC<SliderProps> = (props) => {
-  const {value, setValue, title} = props;
+  const {value, setValue, title, maximumValue} = props;
 
   const [isInfoVisible, setIsInfoVisible] = useState(0);
   const infoOpacity = useRef(new Animated.Value(0)).current;
@@ -35,7 +36,7 @@ const Slider: FC<SliderProps> = (props) => {
       value={value}
       onValueChange={(value) => setValue(value as number)}
       minimumValue={0}
-      maximumValue={100}
+      maximumValue={maximumValue}
       minimumTrackTintColor={appTheme.colors.darkGray}
       maximumTrackTintColor={appTheme.colors.trueGray[400]}
       step={10}
