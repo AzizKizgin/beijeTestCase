@@ -18,4 +18,5 @@ export const strings = {
   removefromPack: 'Paketten Çıkar',
   addToCart: 'Sepete Ekle',
   noProduct: 'Henüz ürün seçmemişsin.',
+  underConstruction: 'Bu ekran yapım aşamasındadır.',
 };
