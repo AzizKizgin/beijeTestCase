@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@aziz_kizgin/react-native-toast-message": "^1.0.2",
     "@miblanchard/react-native-slider": "^2.3.0",
     "@react-navigation/material-top-tabs": "^6.6.2",
     "@react-navigation/native": "^6.1.6",
