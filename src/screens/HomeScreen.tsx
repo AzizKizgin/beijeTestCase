@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Text, VStack} from 'native-base';
+import {Box, ScrollView, Text, VStack} from 'native-base';
 import MenuTabs from '../navigation/MenuTabs';
 import {strings} from '../utils/strings';
 import Button from '../components/Button';
@@ -30,24 +30,32 @@ const HomeScreen = () => {
     }
   };
   return (
-    <Box flex={1} backgroundColor="bgColor" paddingX={1}>
-      <VStack paddingX={4} space={2} marginY={4}>
-        <Text
-          fontSize="xl"
-          fontWeight="bold"
-          color="darkGray"
-          textAlign="center">
-          {strings.createYourPack}
-        </Text>
-        <Text color="textColor" textAlign="center" fontSize="sm">
-          {strings.createInfo}
-        </Text>
-      </VStack>
-      <Box>
-        <MenuTabs />
-        <Button title={strings.seePack} onPress={onPress} />
+    <ScrollView
+      nestedScrollEnabled
+      contentContainerStyle={{
+        paddingBottom: 10,
+      }}>
+      <Box flex={1} backgroundColor="bgColor" paddingX={1}>
+        <VStack paddingX={4} space={2} marginY={4}>
+          <Text
+            fontSize="xl"
+            fontWeight="bold"
+            color="darkGray"
+            textAlign="center">
+            {strings.createYourPack}
+          </Text>
+          <Text color="textColor" textAlign="center" fontSize="sm">
+            {strings.createInfo}
+          </Text>
+        </VStack>
+        <Box>
+          <ScrollView nestedScrollEnabled>
+            <MenuTabs />
+          </ScrollView>
+          <Button title={strings.seePack} onPress={onPress} />
+        </Box>
       </Box>
-    </Box>
+    </ScrollView>
   );
 };
 

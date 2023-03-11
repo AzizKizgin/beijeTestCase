@@ -15,7 +15,9 @@ const MenuTabs = () => {
   const Tab = createMaterialTopTabNavigator();
   return (
     <Tab.Navigator
-      style={{minHeight: SCREEN_HEIGHT * 0.6}}
+      style={{
+        minHeight: 450,
+      }}
       screenOptions={{
         tabBarStyle: {
           backgroundColor: appTheme.colors.bgColor,

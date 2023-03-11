@@ -14,6 +14,7 @@ const Button: FC<ButtonProps> = (props) => {
       onPress={onPress}
       backgroundColor="darkGray"
       paddingY={4}
+      marginTop={4}
       justifyContent="center"
       alignItems="center"
       marginX={4}
