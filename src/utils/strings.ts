@@ -17,4 +17,5 @@ export const strings = {
     'Tercih ve ihtiyaçların doğrultusunda seçeceğin ürünlerden ve miktarlardan, sana özel bir paket oluşturalım.',
   removefromPack: 'Paketten Çıkar',
   addToCart: 'Sepete Ekle',
+  noProduct: 'Henüz ürün seçmemişsin.',
 };
