@@ -1,14 +1,18 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {Icon, Pressable} from 'native-base';
 import Feather from 'react-native-vector-icons/Feather';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useToast} from '@aziz_kizgin/react-native-toast-message';
+import {strings} from '../../utils/strings';
 
 const ShopCart = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<NavigationParams>>();
+  const {showToast} = useToast();
   const onPress = () => {
-    navigation.navigate('Cart');
+    showToast({
+      color: 'info',
+      message: strings.underConstruction,
+      duration: 2000,
+      position: 'bottom',
+    });
   };
 
   return (

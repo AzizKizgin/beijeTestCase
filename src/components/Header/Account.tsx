@@ -1,15 +1,18 @@
 import React, {FC} from 'react';
 import {Icon, Pressable} from 'native-base';
 import Feather from 'react-native-vector-icons/Feather';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useToast} from '@aziz_kizgin/react-native-toast-message';
+import {strings} from '../../utils/strings';
 
 const Account = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<NavigationParams>>();
-
+  const {showToast} = useToast();
   const onPress = () => {
-    navigation.navigate('Account');
+    showToast({
+      color: 'info',
+      message: strings.underConstruction,
+      duration: 2000,
+      position: 'bottom',
+    });
   };
 
   return (
